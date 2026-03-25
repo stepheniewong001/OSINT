@@ -16,7 +16,7 @@ This project aimed to examine how data persists across web systems after deletio
 ### Tools Used
 
 **Search & Discovery**
-- Google Search (exact match, exclusion operators)
+- Google Search Operators (exact match, exclusion operators)
 
 **Archival & Cache Analysis**
 - Wayback Machine
