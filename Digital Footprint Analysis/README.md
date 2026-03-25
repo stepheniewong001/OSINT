@@ -50,8 +50,7 @@ This indicates that:
 - the content had been removed from the website
 - but still persisted in Google’s indexed snippet
 
-📸 Screenshot:
-- Include: Google search result showing snippet with removed information
+<img width="500" height="600" alt="Screenshot 2026-03-25 at 10 50 25 PM" src="https://github.com/user-attachments/assets/52d542e9-2a51-4fb7-b94a-bcc2b4133532" />
 
 ---
 
@@ -67,8 +66,8 @@ Insight:
 - Not all pages are archived
 - Archiving depends on crawl timing or manual submission
 
-📸 Screenshot:
-- Include: Wayback Machine showing no snapshots
+<img width="545" height="350" alt="Screenshot 2026-03-25 at 10 41 29 PM" src="https://github.com/user-attachments/assets/f7a70622-5458-4ef2-8703-1dec3dc103f4" />
+
 
 ---
 
@@ -83,8 +82,8 @@ Insight:
 - Google cache is temporary
 - Snippets may persist even when full cached pages are no longer available
 
-📸 Screenshot:
-- Optional (skip unless clean)
+<img width="545" height="128" alt="Screenshot 2026-03-25 at 10 42 20 PM" src="https://github.com/user-attachments/assets/184eeb14-2d5b-4724-b728-a955ebc21831" />
+
 
 ---
 
