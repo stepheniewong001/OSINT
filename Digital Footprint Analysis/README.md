@@ -1,148 +1,150 @@
 # OSINT Exercise: Reconstructing a Deleted Digital Footprint
 
-## 🎯 Objective
-To investigate whether information removed from a website can still be recovered using public sources and technical methods, and to understand how data persists across different layers of the web.
+## Objective
+This project aimed to examine how data persists across web systems after deletion from a primary source. The investigation involved testing multiple layers, including search engine indexing, web archives, cache, and frontend/API inspection, to assess whether removed content could still be recovered. This hands-on exercise was designed to build a deeper understanding of data lifecycle, limitations of OSINT tools, and how modern web systems store and deliver information.
 
----
+### Skills Learned
 
-## 🔍 Methodology
+- Understanding of data persistence across web layers (backend, frontend, search index, cache, archives).
+- Applied search refinement (exact match, exclusion) to isolate relevant information from noisy results.
+- Conducted multi-layer validation of data availability across search, cache, archives, and live systems.
+- Basic understanding of API-driven web architecture (GraphQL / Voyager).
+- Used browser DevTools to inspect page structure and analyze network requests.
+- Identified limitations of OSINT tools and differences between live, cached, and archived data.
+- Applied hypothesis-driven investigation and analytical reasoning.
 
-### 1. Search Engine Analysis
-Initial searches returned mostly irrelevant results due to name ambiguity.
+### Tools Used
 
-Refined queries using:
-- exact match (`"..."`)
-- exclusion operators (`-keyword`)
+**Search & Discovery**
+- Google Search (exact match, exclusion operators)
+
+**Archival & Cache Analysis**
+- Wayback Machine
+- Google Cache
+
+**Web Analysis**
+- Chrome DevTools (Elements, Network)
+- HTML Source inspection
+
+## Steps
+
+### 1. Initial Search & Problem Identification
+Conducted an initial Google search on the individual.
+
+Observed that results were highly noisy due to name ambiguity, with multiple unrelated entries and dominant but irrelevant results appearing.
+
+To improve result quality, refined queries using:
+- exact match: "..."
+- exclusion operators: -keyword
 
 This helped isolate relevant references and reduce noise.
 
-**Finding:**
-Search results still displayed descriptive snippets of previously available content, even after the live page was updated.
+---
 
-![Google Snippet](screenshots/google-snippet.png)
+### 2. Identification of Residual Data
+From the refined search results, identified Google snippets that displayed information about the individual (e.g. roles, affiliations).
+
+Upon clicking into the webpage, observed that the same information was no longer present on the live site.
+
+This indicates that:
+- the content had been removed from the website
+- but still persisted in Google’s indexed snippet
+
+📸 Screenshot:
+- Include: Google search result showing snippet with removed information
 
 ---
 
-### 2. Web Archive Check
-Checked the Wayback Machine for historical snapshots of the page.
+### 3. Attempted Historical Recovery
 
-**Result:**
-No archived version of the page was available.
+#### 3.1 Wayback Machine
+Checked the URL using Wayback Machine to determine if a historical snapshot existed.
 
-**Insight:**
-Not all pages are archived. Capture depends on crawl timing or manual submission.
+Result:
+- No archived version found
 
-![Wayback Result](screenshots/wayback-no-archive.png)
+Insight:
+- Not all pages are archived
+- Archiving depends on crawl timing or manual submission
 
----
-
-### 3. Cache Verification
-Attempted to retrieve cached versions using:
-
-**Result:**
-No cached version found.
-
-**Insight:**
-Search engine cache is temporary and may be removed after re-crawling, even if snippets remain.
+📸 Screenshot:
+- Include: Wayback Machine showing no snapshots
 
 ---
 
-### 4. Frontend Inspection
-Viewed page source and inspected the page using browser DevTools.
+#### 3.2 Google Cache
+Attempted to retrieve a cached version using:
+cache:<URL>
 
-**Result:**
-No residual references found in the HTML or visible page structure.
+Result:
+- No cached page available (likely refreshed or cleared)
 
-**Insight:**
-Frontend reflects only the current state and does not retain historical content.
+Insight:
+- Google cache is temporary
+- Snippets may persist even when full cached pages are no longer available
 
----
-
-### 5. Network / API Analysis
-Explored network requests (GraphQL / Voyager) to understand how content is loaded.
-
-**Result:**
-Only current data was returned. No historical content was accessible.
-
-**Insight:**
-Modern web applications load content dynamically via APIs.  
-Once data is updated or removed server-side, previous versions are not accessible through frontend or API.
+📸 Screenshot:
+- Optional (skip unless clean)
 
 ---
 
-### 6. Metadata Review
-Checked `<head>` section for meta tags (e.g. description, Open Graph).
+### 4. Page Source Analysis (HTML Level)
+Viewed the page source to check whether removed information still existed within the HTML.
 
-**Result:**
-No relevant references found.
+Specifically checked for:
+- visible text remnants
+- comments
+- metadata (e.g. <meta> tags)
 
-**Insight:**
-Metadata is typically updated alongside page content and does not preserve previous versions.
+Result:
+- No relevant data found
 
----
-
-## 🧠 Key Learnings
-
-### 1. Data exists in layers
-Information may exist across:
-- Backend (source of truth)
-- Frontend (UI)
-- Search engine index
-- Cache
-- Archive
+Insight:
+- Page source reflects the current state of the webpage
+- Removed content is not retained in the HTML once deleted server-side
 
 ---
 
-### 2. Deletion is not immediate across systems
-Search engines may temporarily retain outdated snippets even after content is removed.
+### 5. Frontend Inspection (DevTools – Elements)
+Used browser DevTools (Elements tab) to inspect the page structure (DOM).
+
+Purpose:
+- To determine whether the content was still present but hidden (e.g. via CSS or dynamic rendering)
+
+Result:
+- No hidden or residual content identified
+
+Conclusion:
+- The data was not hidden; it had been fully removed from the page
+  
+---
+
+### 6. Network / API Analysis (Backend Check)
+Opened the Network tab in DevTools and reloaded the page to observe requests (e.g. GraphQL / Voyager).
+
+Purpose:
+- To determine whether the backend was still returning the removed data
+
+Observation:
+- API responses only contained current data
+- No historical or removed information was returned
+
+Insight:
+- Modern web applications load content dynamically via APIs
+- Once data is removed from the backend, it is no longer accessible through frontend or network requests
 
 ---
 
-### 3. True deletion occurs at backend level
-Once data is removed from the server/database, it is no longer recoverable via:
-- Inspect (HTML)
-- API requests
-- Network analysis
+### 7. Consolidation of Findings
+Tested data availability across multiple layers:
+- Search index (Google snippet)
+- Archive (Wayback)
+- Cache (Google)
+- Frontend (live page)
+- Source/DOM (HTML & Elements)
+- Backend (API responses)
 
----
-
-### 4. Tools have limitations
-- Wayback Machine is incomplete  
-- Google cache is temporary  
-- DevTools only show current state  
-- APIs return only live backend data  
-
----
-
-### 5. Investigation includes ruling out possibilities
-Confirming where data does *not* exist is part of the analytical process.
-
----
-
-## 🧭 Conclusion
-
-The original content could not be recovered through technical methods.  
-However, residual traces in search engine snippets confirmed that the data previously existed.
-
-This demonstrates how information persists temporarily across systems before full removal.
-
----
-
-## 🪞 Reflection
-
-Initially, the focus was on recovering deleted content.  
-Through the process, the more important takeaway was understanding:
-
-- where data still exists  
-- where it no longer does  
-- and why  
-
-This exercise reinforced that effective investigation is not just about finding information, but also about identifying the limits of its availability.
-
----
-
-## 📸 Evidence
-
-Screenshots included:
-- Search engine snippet showing residual data  
-- Wayback Machine result showing no archive  
+Conclusion:
+- Data persisted only in the search engine snippet
+- It was not recoverable from any current technical layer
+- The information is no longer accessible through public-facing systems
