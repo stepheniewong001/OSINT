@@ -52,7 +52,7 @@ This indicates that:
 
 <img width="500" height="600" alt="Screenshot 2026-03-25 at 10 50 25 PM" src="https://github.com/user-attachments/assets/52d542e9-2a51-4fb7-b94a-bcc2b4133532" />
 
-I was curious to see if I could identify when the data was changed on the website and explored it here
+I was curious to see if I could identify when the data was changed on the website and explored it here: See deeper analysis: [Content Timeline Analysis](./content-timeline-analysis.md)
 
 ---
 
