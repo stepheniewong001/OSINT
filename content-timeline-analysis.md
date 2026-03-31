@@ -31,14 +31,14 @@ Observed entry:
     <lastmod>2026-03-23T03:00:00+00:00</lastmod>
 
 
-Interpretation:
-- The page was last modified on 23 March 2026, 03:00 UTC
-- Converted to Singapore Time (UTC+8):
-   → 23 March 2026, 11:00 AM SGT
+- Interpretation
+    - The page was last modified on 23 March 2026, 03:00 UTC
+    - Converted to Singapore Time (UTC+8):
+       → 23 March 2026, 11:00 AM SGT
 
-Insight:
-- Sitemap provides last modification timestamp only
-- It does not provide creation date or edit history
+- Insight:
+    - Sitemap provides last modification timestamp only
+    - It does not provide creation date or edit history
 
 ---
 
@@ -48,16 +48,15 @@ Inspected the HTML source and identified metadata fields:
       article:published_time = 2024-12-05
       article:modified_time  = 2026-03-23
 
-
 Interpretation:
-- Page was initially created on 5 December 2024
-- Last updated on 23 March 2026
+ - Page was initially created on 5 December 2024
+ - Last updated on 23 March 2026
 
 Insight:
 - Metadata allows differentiation between:
-    - creation (published_time)
+   - creation (published_time)
     - latest update (modified_time)
-- However, intermediate edits are not visible (no version history exposed)
+ - However, intermediate edits are not visible (no version history exposed)
 
 ---
 
@@ -81,15 +80,15 @@ Steps:
 - Inspect Response Headers
 
 Checked for:
-  - Last-Modified
-  - ETag
+      Last-Modified
+      ETag
 
 Observation:
 - Last-Modified aligns with sitemap/metadata timestamp
 
 Insight:
-- Confirms server-side last update timing
-- Does not provide historical edit records
+ - Confirms server-side last update timing
+ - Does not provide historical edit records
 
 ---
 
