@@ -111,3 +111,8 @@ Conclusion:
   - absence of caching
 - Sitemap and metadata provide point-in-time signals, not full edit history
 
+
+Resource Referenced:
+- [How to find out when a website was last updated](https://www.youtube.com/watch?v=wA8QoInDMYg)
+
+
