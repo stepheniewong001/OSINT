@@ -1,4 +1,4 @@
-# OSINT Exercise: Reconstructing a Deleted Digital Footprint
+# Reconstructing a Deleted Digital Footprint
 
 ## Objective
 This project aimed to examine how data persists across web systems after deletion from a primary source. The investigation involved testing multiple layers, including search engine indexing, web archives, cache, and frontend/API inspection, to assess whether removed content could still be recovered. This hands-on exercise was designed to build a deeper understanding of data lifecycle, limitations of OSINT tools, and how modern web systems store and deliver information.
@@ -51,6 +51,8 @@ This indicates that:
 - but still persisted in Google’s indexed snippet
 
 <img width="500" height="600" alt="Screenshot 2026-03-25 at 10 50 25 PM" src="https://github.com/user-attachments/assets/52d542e9-2a51-4fb7-b94a-bcc2b4133532" />
+
+I was curious to see if I could identify when the data was changed on the website and explored it here
 
 ---
 
