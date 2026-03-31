@@ -48,15 +48,15 @@ Inspected the HTML source and identified metadata fields:
       article:published_time = 2024-12-05
       article:modified_time  = 2026-03-23
 
-Interpretation:
- - Page was initially created on 5 December 2024
- - Last updated on 23 March 2026
+- Interpretation:
+     - Page was initially created on 5 December 2024
+     - Last updated on 23 March 2026
 
-Insight:
-- Metadata allows differentiation between:
-   - creation (published_time)
-    - latest update (modified_time)
- - However, intermediate edits are not visible (no version history exposed)
+- Insight:
+    - Metadata allows differentiation between:
+       - creation (published_time)
+       - latest update (modified_time)
+     - However, intermediate edits are not visible (no version history exposed)
 
 ---
 
@@ -73,22 +73,22 @@ Insight:
 ### 11. Network Header Validation
 Used Chrome DevTools:
 
-Steps:
-- Inspect page → Network tab
-- Reload page
-- Select main document request
-- Inspect Response Headers
+- Steps:
+    - Inspect page → Network tab
+    - Reload page
+    - Select main document request
+    - Inspect Response Headers
 
-Checked for:
-      Last-Modified
-      ETag
+- Checked for:
+    - Last-Modified
+    - ETag
 
-Observation:
-- Last-Modified aligns with sitemap/metadata timestamp
+- Observation:
+    - Last-Modified aligns with sitemap/metadata timestamp
 
-Insight:
- - Confirms server-side last update timing
- - Does not provide historical edit records
+- Insight:
+     - Confirms server-side last update timing
+     - Does not provide historical edit records
 
 ---
 
